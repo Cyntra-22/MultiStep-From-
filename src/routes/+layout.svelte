@@ -26,7 +26,7 @@
 } 
 
     .main-container{
-        width: 60%;
+        width: 58%;
         display: flex;
         background-color: var(--White);
         padding: 20px;
@@ -39,11 +39,11 @@
 		 
 </style>
 
-
 <div class="main-container">
     <SideNavBar/>
     <slot/>
 </div>
+
 
 
    
