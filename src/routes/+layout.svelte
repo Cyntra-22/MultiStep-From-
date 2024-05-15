@@ -17,26 +17,33 @@
 
         --font: "Ubuntu", sans-serif;
 }
-		
-	
-
+			
 	:global(body){
 		
         background-color: var(--Magnolia);
         font-family: var(--font);
-        min-height: 100vh;
+       
 } 
-		 
-     .main-container{
-        width: 80%;
-        display: flex;
 
+    .main-container{
+        width: 60%;
+        display: flex;
+        background-color: var(--White);
+        padding: 20px;
+        position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+        border-radius: 10px;
     }
+		 
 </style>
 
-<body>
-    <div class="main-container">
-        <SideNavBar/>
-        <slot/>
-    </div>  
-</body>
+
+<div class="main-container">
+    <SideNavBar/>
+    <slot/>
+</div>
+
+
+   
