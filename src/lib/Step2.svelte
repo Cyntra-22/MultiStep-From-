@@ -123,6 +123,34 @@
     .slider.round:before {
     border-radius: 50%;
     }
+
+    .btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    }
+    .prev-stp {
+    margin-top: auto;
+    margin-bottom: 2rem;
+    border: none;
+    font-weight: 700;
+    background-color: transparent;
+    padding: 1rem 2rem;
+    border-radius: 7px;
+    color: var(--Cool-gray);
+    cursor: pointer;
+    }
+    .next-stp {
+    margin-top: auto;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 7px;
+    background-color: var(--Marine-blue);
+    color: white;
+    cursor: pointer;
+    }
 </style>
 <div class="form-container">
     <div class="header">
