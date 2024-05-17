@@ -23,7 +23,7 @@
         background-color: var(--Magnolia);
         font-family: var(--font);
        
-} 
+}   
 
     .main-container{
         width: 58%;

@@ -53,10 +53,7 @@
     font-weight: bold;
     }
 
-    .sw-active {
-    color: var(--Marine-blue);
-    font-weight: 500;  
-    }
+  
 
     .switcher {
     background-color: var(--Magnolia);
