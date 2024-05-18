@@ -1,10 +1,10 @@
 <script>
-    import Step3 from "$lib/Step3.svelte";
+    import Step4 from "$lib/Step4.svelte";
 </script>
 
 <style>
 
 </style>
 
-<Step3/>
+<Step4/>
 
