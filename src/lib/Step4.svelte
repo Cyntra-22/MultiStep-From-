@@ -105,6 +105,9 @@
     .servic-price{
         font-weight: bold;
     }
+    .prev-stp:hover{
+      color: var(--Marine-blue);
+    }
 </style>
 
 <div class="step4-container">

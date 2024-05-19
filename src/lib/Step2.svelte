@@ -1,6 +1,8 @@
 <script lang="ts">
   export let onSubmit: (event: Event) => void;
   export let onGoBack: () => void;
+  let selectedPlan: string = 'Arcade'; 
+  let isYearly: boolean = false;
 
   function handleSubmit(event: Event) {
     event.preventDefault();
@@ -10,6 +12,12 @@
 
   function handleGoBack() {
     onGoBack();
+  }
+  function selectPlan(plan: string) {
+    selectedPlan = plan;
+  }
+  function toggleBillingCycle() {
+    isYearly = !isYearly;
   }
 </script>
 <style>
@@ -32,13 +40,13 @@
     .plan-card {
     border: 2px solid var(--Light-gray);
     border-radius: 7px;
-    width: 110px;
-    height: 140px;
+    width: 130px;
+    height: 150px;
     cursor: pointer;
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     }
     .plan-info {
@@ -161,6 +169,9 @@
       justify-content: space-between;
      
     }
+    .prev-stp:hover{
+      color: var(--Marine-blue);
+    }
 </style>
 <div class="form-container">
     <div class="header">
@@ -169,35 +180,44 @@
     </div>
     <form on:submit={handleSubmit}>
       <div class="card-container">
-        <div class="plan-card selected">
-              <img src="/icon-arcade.svg" alt="arcade" />
-            <div class="plan-info chosen">
-                <b>Arcade</b>
-                <span class="plan-priced">$9/mo</span>
-            </div>
+        <button type="button" class="plan-card {selectedPlan === 'Arcade' ? 'selected' : ''}" on:click={() => selectPlan('Arcade')}>
+        <img src="/icon-arcade.svg" alt="arcade" />
+        <div class="plan-info">
+          <b>Arcade</b>
+          <span class="plan-priced">{isYearly ? '$90/yr' : '$9/mo'}</span>
+          {#if isYearly}
+            <span class="plan-free">2 months free</span>
+          {/if}
         </div>
-        <div class="plan-card">
-              <img src="/icon-advanced.svg" alt="arcade" />
-            <div class="plan-info">
-                <b>Advanced</b>
-                <span class="plan-priced">$12/mo</span>
-            </div>
+      </button>
+      <button type="button" class="plan-card {selectedPlan === 'Advanced' ? 'selected' : ''}" on:click={() => selectPlan('Advanced')}>
+        <img src="/icon-advanced.svg" alt="advanced" />
+        <div class="plan-info">
+          <b>Advanced</b>
+          <span class="plan-priced">{isYearly ? '$120/yr' : '$12/mo'}</span>
+          {#if isYearly}
+            <span class="plan-free">2 months free</span>
+          {/if}
         </div>
-        <div class="plan-card">
-              <img src="/icon-pro.svg" alt="arcade" />
-            <div class="plan-info">
-                <b>Pro</b>
-                <span class="plan-priced">$15/mo</span>
-            </div>
+      </button>
+      <button type="button" class="plan-card {selectedPlan === 'Pro' ? 'selected' : ''}" on:click={() => selectPlan('Pro')}>
+        <img src="/icon-pro.svg" alt="pro" />
+        <div class="plan-info">
+          <b>Pro</b>
+          <span class="plan-priced">{isYearly ? '$150/yr' : '$15/mo'}</span>
+          {#if isYearly}
+            <span class="plan-free">2 months free</span>
+          {/if}
         </div>
+      </button>
     </div>
     <div class="switcher">
-            <p class="monthly sw-active">Monthly</p>
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-            <p class="yearly">Yearly</p>
+      <p class="monthly {isYearly ? '' : 'sw-active'}">Monthly</p>
+      <label class="switch">
+        <input type="checkbox" on:change={toggleBillingCycle} />
+        <span class="slider round"></span>
+      </label>
+      <p class="yearly {isYearly ? 'sw-active' : ''}">Yearly</p>
     </div>
     <div class="btns">
             <button class="prev-stp" type="button" on:click={handleGoBack}>Go Back</button>

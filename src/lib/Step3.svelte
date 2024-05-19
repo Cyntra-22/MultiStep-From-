@@ -102,6 +102,9 @@
     border: 1px solid var(--Purplish-blue);
     background-color: var(--Magnolia);
     }
+    .prev-stp:hover{
+      color: var(--Marine-blue);
+    }
 </style>
 
 <div class="step3-container">  
