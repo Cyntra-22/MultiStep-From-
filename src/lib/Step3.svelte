@@ -1,3 +1,17 @@
+<script lang="ts">
+  export let onSubmit: (event: Event) => void;
+  export let onGoBack: () => void;
+
+  function handleSubmit(event: Event) {
+    event.preventDefault();
+    onSubmit(event);
+  }
+
+  function handleGoBack() {
+    onGoBack();
+  }
+</script>
+
 <style>
     .header{
         margin-bottom: 40px;
@@ -95,7 +109,7 @@
             <h1 class="title">Pick add-ons</h1>
             <p class="exp">Add-ons help enhance your gaming experience.</p>    
         </div>
-        <form>
+        <form on:submit={handleSubmit}> 
             <div class="box ad-selected">
                 <input type="checkbox" />
                 <div class="description">
@@ -121,7 +135,7 @@
                 <p class="price">+$2/mo</p>
             </div>
             <div class="btns">
-                <button class="prev-stp" type="button">Go Back</button>
+                <button class="prev-stp" type="button" on:click={handleGoBack}>Go Back</button>
                 <button class="next-stp" type="submit">Next Step</button>
             </div>  
         </form>

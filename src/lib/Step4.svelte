@@ -1,3 +1,17 @@
+<script lang="ts">
+  export let onSubmit: (event: Event) => void;
+  export let onGoBack: () => void;
+
+  function handleSubmit(event: Event) {
+    event.preventDefault();
+    onSubmit(event);
+  }
+
+  function handleGoBack() {
+    onGoBack();
+  }
+</script>
+
 <style>
     .header{
         margin-bottom: 40px;
@@ -98,6 +112,7 @@
             <h1 class="title">Finishing up</h1>
             <p class="exp">Double-check everything looks OK before confirming.</p>    
     </div>
+    <form on:submit={handleSubmit}>
      <div class="selection-box">
             <div class="selection-container">
               <div class="selected-plan">
@@ -120,7 +135,8 @@
             <p class="total">Total (per month) <b>+$12/mo</b></p>
           </div>
      <div class="btns">
-            <button class="prev-stp" type="button">Go Back</button>
+            <button class="prev-stp" type="button" on:click={handleGoBack}>Go Back</button>
             <button class="next-stp" type="submit">Next Step</button>
     </div>
+    </form>
 </div>

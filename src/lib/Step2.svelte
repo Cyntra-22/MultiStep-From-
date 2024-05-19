@@ -1,5 +1,15 @@
-<script>
+<script lang="ts">
+  export let onSubmit: (event: Event) => void;
+  export let onGoBack: () => void;
 
+  function handleSubmit(event: Event) {
+    event.preventDefault();
+    onSubmit(event);
+  }
+
+  function handleGoBack() {
+    onGoBack();
+  }
 </script>
 <style>
     .form-container{
@@ -154,7 +164,7 @@
         <h1 class="title">Select your plan</h1>
         <p class="exp">You have the option of monthly or yearly billing.</p>
     </div>
-    <form>
+    <form on:submit={handleSubmit}>
         <div class="plan-card selected">
               <img src="/icon-arcade.svg" alt="arcade" />
             <div class="plan-info chosen">
@@ -187,7 +197,7 @@
             <p class="yearly">Yearly</p>
     </div>
     <div class="btns">
-            <button class="prev-stp" type="button">Go Back</button>
+            <button class="prev-stp" type="button" on:click={handleGoBack}>Go Back</button>
             <button class="next-stp" type="submit">Next Step</button>
     </div>
 

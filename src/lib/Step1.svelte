@@ -1,3 +1,12 @@
+<script lang="ts">
+  export let onSubmit: (event: Event) => void;
+
+  function handleSubmit(event: Event) {
+    event.preventDefault();
+    onSubmit(event);
+  }
+</script>
+
 <style>
     .form-container{
         margin-left: 50px;
@@ -65,7 +74,7 @@
         <h1 class="title">Personal info</h1>
         <p class="exp">Please provide your name, email address, and phone number.</p>
     </div>
-    <form>
+    <form on:submit={handleSubmit}>
         <div class="label">
             <label for="name">Name</label>
             <p class="error">This Field Is Required</p>
