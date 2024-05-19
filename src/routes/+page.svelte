@@ -3,8 +3,15 @@
 </script>
 
 <style>
-
+    .font-style{
+        font-family: var(--font);
+    }
 </style>
 
-<Step5/>
+<div class="font-style">
+    <Step5/>
+</div>
+
+
+
 

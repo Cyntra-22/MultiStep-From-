@@ -6,11 +6,18 @@
 
     .header .exp {
     color: var(--Cool-gray);
+    line-height: 1.5;
     }
     .step4-container{
-        margin-left: 30px;
+       
+        position: absolute;
+		top: 50%;
+		left: 65%;
+		transform: translate(-50%,-50%);
+        text-align: center;
+        width: 50%;
     }
- 
+
 </style>
 
 <div class="step4-container">
@@ -23,5 +30,4 @@
               email us at support@loremgaming.com.
             </p>
         </div>
-    <button class="next-stp"></button>
 </div>

@@ -21,7 +21,6 @@
 	:global(body){
 		
         background-color: var(--Magnolia);
-        font-family: var(--font);
        
 }   
 
