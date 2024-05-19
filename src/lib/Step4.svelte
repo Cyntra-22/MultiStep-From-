@@ -108,6 +108,9 @@
     .prev-stp:hover{
       color: var(--Marine-blue);
     }
+    .change-style:hover{
+      color: var(--Marine-blue);
+    }
 </style>
 
 <div class="step4-container">
@@ -122,7 +125,7 @@
                 <p class="plan-name">Arcade(Monthly)</p>
                 <p class="plan-price">$9/mo</p>
               </div>
-              <a href="/"><small>Change</small></a>
+              <a href="/"><small class="change-style">Change</small></a>
               <hr />
               <div class="addons">
                   <div class="selected-addon">

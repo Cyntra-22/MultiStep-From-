@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let onSubmit: (event: Event) => void;
+  export let onSubmit: (event: Event, isYearly: boolean) => void;
   export let onGoBack: () => void;
   let selectedPlan: string = 'Arcade'; 
   let isYearly: boolean = false;
@@ -7,7 +7,7 @@
   function handleSubmit(event: Event) {
     event.preventDefault();
     console.log('Form submitted');
-    onSubmit(event);
+    onSubmit(event,isYearly);
   }
 
   function handleGoBack() {
@@ -226,3 +226,10 @@
     </form>
 
 </div>
+
+
+
+
+
+
+

@@ -113,7 +113,7 @@
             <p class="exp">Add-ons help enhance your gaming experience.</p>    
         </div>
         <form on:submit={handleSubmit}> 
-            <div class="box ad-selected">
+            <div class="box ">
                 <input type="checkbox" />
                 <div class="description">
                     <label for="online">Online Service</label>
@@ -121,7 +121,7 @@
                 </div>
                 <p class="price">+$1/mo</p>
             </div>
-             <div class="box ad-selected">
+             <div class="box ">
                 <input type="checkbox" />
                 <div class="description">
                     <label for="larger">Larger storage</label>
