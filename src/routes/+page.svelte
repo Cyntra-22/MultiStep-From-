@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Step1 from '$lib/step1.svelte';
+  import Step1 from '$lib/Step1.svelte';
   import { goto } from '$app/navigation';
 
   function handleNextStep(event: Event) {
@@ -10,7 +10,8 @@
 
 <style>
     .font-style{
-        font-family: var(--font);
+        font-family: 
+        var(--font);
     }
 </style>
 

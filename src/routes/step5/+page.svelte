@@ -1,11 +1,9 @@
 <script lang="ts">
-  import Step1 from '$lib/step1.svelte';
-  import { goto } from '$app/navigation';
+  import Step5 from "$lib/Step5.svelte"; 
+  import {currentStep} from "$lib/stepStore";
 
-  function handleNextStep(event: Event) {
-    event.preventDefault();
-    goto('/step2');
-  }
+  currentStep.set(4);
+
 </script>
 
-<Step1 onSubmit={handleNextStep} />
+<Step5/>

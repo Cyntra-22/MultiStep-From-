@@ -4,6 +4,7 @@
 
   function handleSubmit(event: Event) {
     event.preventDefault();
+    console.log('Form submitted');
     onSubmit(event);
   }
 
@@ -14,6 +15,7 @@
 <style>
     .form-container{
         margin-left: 30px;
+        width: 55%;
     }
     .header .title {
     color: var(--Marine-blue);
@@ -23,12 +25,10 @@
     }
 
     form {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    gap: 2rem;
     margin-top: 50px;
+
     }
+   
     .plan-card {
     border: 2px solid var(--Light-gray);
     border-radius: 7px;
@@ -62,8 +62,6 @@
     color: var(--Cool-gray);
     font-weight: bold;
     }
-
-  
 
     .switcher {
     background-color: var(--Magnolia);
@@ -158,6 +156,11 @@
     color: white;
     cursor: pointer;
     }
+    .card-container{
+      display: flex;
+      justify-content: space-between;
+     
+    }
 </style>
 <div class="form-container">
     <div class="header">
@@ -165,6 +168,7 @@
         <p class="exp">You have the option of monthly or yearly billing.</p>
     </div>
     <form on:submit={handleSubmit}>
+      <div class="card-container">
         <div class="plan-card selected">
               <img src="/icon-arcade.svg" alt="arcade" />
             <div class="plan-info chosen">
@@ -186,8 +190,7 @@
                 <span class="plan-priced">$15/mo</span>
             </div>
         </div>
-        
-    </form>
+    </div>
     <div class="switcher">
             <p class="monthly sw-active">Monthly</p>
             <label class="switch">
@@ -200,5 +203,6 @@
             <button class="prev-stp" type="button" on:click={handleGoBack}>Go Back</button>
             <button class="next-stp" type="submit">Next Step</button>
     </div>
+    </form>
 
 </div>

@@ -9,7 +9,8 @@
 
 <style>
     .form-container{
-        margin-left: 50px;
+        margin-left: 30px;
+        width: 55%;
     }
     .header{
         display: block;

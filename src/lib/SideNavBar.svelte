@@ -1,6 +1,16 @@
-<script>
+<script lang="ts">
+  import { currentStep } from '$lib/stepStore';
+  import { onMount } from 'svelte';
 
+  let step: number;
+
+  onMount(() => {
+    currentStep.subscribe(value => {
+      step = value;
+    });
+  });
 </script>
+
 <style>
     .form-sidebar {
     background-image: url("/bg-sidebar-desktop.svg");
@@ -56,32 +66,32 @@
 </style>
 
 <div class="form-sidebar">
-    <div class="step active">
-        <div class="circle">1</div>
-            <div class="step-content">
-              <span>Step 1</span>
-              <b>Your info</b>
-            </div>
-        </div>
-        <div class="step">
-            <div class="circle">2</div>
-            <div class="step-content">
-              <span>Step 2</span>
-              <b>Select plan</b>
-            </div>
-        </div>
-        <div class="step">
-            <div class="circle">3</div>
-            <div class="step-content">
-              <span>Step 3</span>
-              <b>Add-ons</b>
-            </div>
-        </div>
-        <div class="step">
-            <div class="circle">4</div>
-            <div class="step-content">
-              <span>Step 4</span>
-              <b>Summary</b>
-        </div>
+  <div class="step {step === 1 ? 'active' : ''}">
+    <div class="circle">1</div>
+    <div class="step-content">
+      <span>Step 1</span>
+      <b>Your info</b>
     </div>
+  </div>
+  <div class="step {step === 2 ? 'active' : ''}">
+    <div class="circle">2</div>
+    <div class="step-content">
+      <span>Step 2</span>
+      <b>Select plan</b>
+    </div>
+  </div>
+  <div class="step {step === 3 ? 'active' : ''}">
+    <div class="circle">3</div>
+    <div class="step-content">
+      <span>Step 3</span>
+      <b>Add-ons</b>
+    </div>
+  </div>
+  <div class="step {step === 4 ? 'active' : ''}">
+    <div class="circle">4</div>
+    <div class="step-content">
+      <span>Step 4</span>
+      <b>Summary</b>
+    </div>
+  </div>
 </div>

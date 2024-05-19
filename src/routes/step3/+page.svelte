@@ -1,7 +1,9 @@
 <script lang="ts">
   import Step3 from "$lib/Step3.svelte";
   import { goto } from '$app/navigation';
+  import {currentStep} from "$lib/stepStore";
 
+  currentStep.set(3);
   function handleNextStep(event: Event) {
     event.preventDefault();
    
