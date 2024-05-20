@@ -2,6 +2,10 @@
   export let onSubmit: (event: Event) => void;
   export let onGoBack: () => void;
 
+  let onlineService:boolean = false;
+  let largerStorage:boolean = false;
+  let customizableProfile:boolean = false;
+
   function handleSubmit(event: Event) {
     event.preventDefault();
     onSubmit(event);
@@ -113,24 +117,24 @@
             <p class="exp">Add-ons help enhance your gaming experience.</p>    
         </div>
         <form on:submit={handleSubmit}> 
-            <div class="box ">
-                <input type="checkbox" />
+            <div class="box {onlineService ? 'ad-selected' : ''}">
+                <input type="checkbox" bind:checked={onlineService} />
                 <div class="description">
                     <label for="online">Online Service</label>
                     <small>Access to multiplayer games</small>
                 </div>
                 <p class="price">+$1/mo</p>
             </div>
-             <div class="box ">
-                <input type="checkbox" />
+            <div class="box {largerStorage ? 'ad-selected' : ''}">
+                <input type="checkbox" bind:checked={largerStorage} />
                 <div class="description">
                     <label for="larger">Larger storage</label>
                     <small>Extra 1TB of cloud save</small>
                 </div>
                 <p class="price">+$2/mo</p>
             </div>
-             <div class="box">
-                <input type="checkbox" />
+            <div class="box {customizableProfile ? 'ad-selected' : ''}">
+                <input type="checkbox" bind:checked={customizableProfile} />
                 <div class="description">
                     <label for="online">Customizable Profile</label>
                     <small>Custom theme on your profile</small>

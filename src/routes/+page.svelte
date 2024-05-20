@@ -8,16 +8,8 @@
   }
 </script>
 
-<style>
-    .font-style{
-        font-family: 
-        var(--font);
-    }
-</style>
+<Step1 onSubmit={handleNextStep} />
 
-<div class="font-style">
-    <Step1 onSubmit={handleNextStep} />
-</div>
 
 
 
