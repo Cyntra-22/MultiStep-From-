@@ -20,6 +20,57 @@
     isYearly = !isYearly;
   }
 </script>
+
+
+<!--
+<script lang="ts">
+  export let onSubmit: (event: Event, plan: { name: string; price: string }, isYearly: boolean) => void;
+  export let onGoBack: () => void;
+  let selectedPlan: string = 'Arcade';
+  let isYearly: boolean = false;
+
+  function handleSubmit(event: Event) {
+    event.preventDefault();
+    const plan = {
+      name: selectedPlan,
+      price: isYearly ? getYearlyPrice(selectedPlan) : getMonthlyPrice(selectedPlan)
+    };
+    onSubmit(event, plan, isYearly);
+  }
+
+  function handleGoBack() {
+    onGoBack();
+  }
+
+  function selectPlan(plan: string) {
+    selectedPlan = plan;
+  }
+
+  function toggleBillingCycle() {
+    isYearly = !isYearly;
+  }
+
+  function getYearlyPrice(plan: string): string {
+    switch (plan) {
+      case 'Arcade': return '$90/yr';
+      case 'Advanced': return '$120/yr';
+      case 'Pro': return '$150/yr';
+      default: return '';
+    }
+  }
+
+  function getMonthlyPrice(plan: string): string {
+    switch (plan) {
+      case 'Arcade': return '$9/mo';
+      case 'Advanced': return '$12/mo';
+      case 'Pro': return '$15/mo';
+      default: return '';
+    }
+  }
+</script>
+
+-->
+
 <style>
     .form-container{
         margin-left: 30px;
@@ -189,8 +240,8 @@
             <span class="plan-free">2 months free</span>
           {/if}
         </div>
-      </button>
-      <button type="button" class="plan-card {selectedPlan === 'Advanced' ? 'selected' : ''}" on:click={() => selectPlan('Advanced')}>
+        </button>
+        <button type="button" class="plan-card {selectedPlan === 'Advanced' ? 'selected' : ''}" on:click={() => selectPlan('Advanced')}>
         <img src="/icon-advanced.svg" alt="advanced" />
         <div class="plan-info">
           <b>Advanced</b>
@@ -199,8 +250,8 @@
             <span class="plan-free">2 months free</span>
           {/if}
         </div>
-      </button>
-      <button type="button" class="plan-card {selectedPlan === 'Pro' ? 'selected' : ''}" on:click={() => selectPlan('Pro')}>
+        </button>
+        <button type="button" class="plan-card {selectedPlan === 'Pro' ? 'selected' : ''}" on:click={() => selectPlan('Pro')}>
         <img src="/icon-pro.svg" alt="pro" />
         <div class="plan-info">
           <b>Pro</b>
@@ -209,7 +260,7 @@
             <span class="plan-free">2 months free</span>
           {/if}
         </div>
-      </button>
+        </button>
     </div>
     <div class="switcher">
       <p class="monthly {isYearly ? '' : 'sw-active'}">Monthly</p>

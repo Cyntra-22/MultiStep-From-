@@ -16,6 +16,30 @@
   }
 </script>
 
+<!--
+<script lang="ts">
+  export let onSubmit: (event: Event, addOns: any) => void;
+  export let onGoBack: () => void;
+
+  let onlineService: boolean = false;
+  let largerStorage: boolean = false;
+  let customizableProfile: boolean = false;
+
+  function handleSubmit(event: Event) {
+    event.preventDefault();
+    const addOns = {
+      onlineService,
+      largerStorage,
+      customizableProfile
+    };
+    onSubmit(event, addOns);
+  }
+
+  function handleGoBack() {
+    onGoBack();
+  }
+</script>
+-->
 <style>
     .header{
         margin-bottom: 40px;
