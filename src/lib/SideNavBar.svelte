@@ -18,9 +18,6 @@
     width: 250px;
     height: 470px;
     padding: 3rem 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
 
     }
 
@@ -64,23 +61,41 @@
     color: var(--White);
     }
 
+    .step-container{
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
     @media (min-width: 300px) and (max-width: 768px ){
 
     .form-sidebar {
     background-image: url("/bg-sidebar-mobile.svg");
-    width: 400px;
-    height: 200px;
-    display: flex;
-    flex-direction: none;
+    width: 100%;
+    height: 300px;
+    padding: 0;
+    }
+    .step{
+      display: unset;
     }
     .step-content{
-      display: none;
+      display: none;  
     }
+
+    .step-container{
+      flex-direction: unset;
+      gap: 1rem;
+      padding-top: 1rem;
+      margin-left: 4.6rem;
+    }
+
     }
 </style>
 
+
 <div class="form-sidebar">
-  <div class="step {step === 1 ? 'active' : ''}">
+  <div class="step-container">
+    <div class="step {step === 1 ? 'active' : ''}">
     <div class="circle">1</div>
     <div class="step-content">
       <span>Step 1</span>
@@ -108,4 +123,7 @@
       <b>Summary</b>
     </div>
   </div>
+  </div>
+    
+  
 </div>

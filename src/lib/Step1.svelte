@@ -69,6 +69,9 @@
     cursor: pointer;
     font-weight: bold;
     }
+    @media (min-width: 300px) and (max-width: 768px ){
+        
+    }
 </style>
 <div class="form-container">
     <div class="header">
