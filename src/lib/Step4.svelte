@@ -1,6 +1,10 @@
-<script lang="ts">
+<!--<script lang="ts">
+  export let addOns: { onlineService: boolean; largerStorage: boolean; customizableProfile: boolean };
   export let onSubmit: (event: Event) => void;
   export let onGoBack: () => void;
+
+  export let plan: { name: string; price: string };
+  export let isYearly: boolean;
 
   function handleSubmit(event: Event) {
     event.preventDefault();
@@ -10,6 +14,16 @@
   function handleGoBack() {
     onGoBack();
   }
+
+  function getTotalPrice(): string {
+    let basePrice = isYearly ? parseInt(plan.price.slice(1, -3)) : parseInt(plan.price.slice(1, -3));
+    let addOnsPrice = 0;
+    if (addOns.onlineService) addOnsPrice += 1;
+    if (addOns.largerStorage) addOnsPrice += 2;
+    if (addOns.customizableProfile) addOnsPrice += 2;
+    return `$${basePrice + addOnsPrice}${isYearly ? '/yr' : '/mo'}`;
+  }
+
 </script>
 
 <style>
@@ -119,22 +133,36 @@
             <p class="exp">Double-check everything looks OK before confirming.</p>    
     </div>
     <form on:submit={handleSubmit}>
-      <div class="selection-box">
+          <div class="selection-box">
             <div class="selection-container">
               <div class="selected-plan">
-                <p class="plan-name">Arcade(Monthly)</p>
-                <p class="plan-price">$9/mo</p>
+                <p class="plan-name">{plan.name} ({isYearly ? 'Yearly' : 'Monthly'})</p>
+                <p class="plan-price">{plan.price}</p>
               </div>
               <a href="/"><small class="change-style">Change</small></a>
               <hr />
               <div class="addons">
+                {#if addOns.onlineService}
                   <div class="selected-addon">
-                    <span class="service-name">Online serivice</span>
-                    <span class="servic-price">+$1/mo</span>
+                    <span class="service-name">Online service</span>
+                    <span class="service-price">+$1/{isYearly ? 'yr' : 'mo'}</span>
                   </div>
+                {/if}
+                {#if addOns.largerStorage}
+                  <div class="selected-addon">
+                    <span class="service-name">Larger storage</span>
+                    <span class="service-price">+$2/{isYearly ? 'yr' : 'mo'}</span>
+                  </div>
+                {/if}
+                {#if addOns.customizableProfile}
+                  <div class="selected-addon">
+                    <span class="service-name">Customizable profile</span>
+                    <span class="service-price">+$2/{isYearly ? 'yr' : 'mo'}</span>
+                  </div>
+                {/if}
               </div>
             </div>
-            <p class="total">Total (per month) <b>+$12/mo</b></p>
+            <p class="total">Total (per month) <b>{getTotalPrice()}</b></p>
       </div>
       <div class="btns">
             <button class="prev-stp" type="button" on:click={handleGoBack}>Go Back</button>
@@ -142,10 +170,10 @@
       </div>
     </form>
 </div>
+-->
 
 
-<!--
- Step4.svelte 
+
 <script lang="ts">
   export let plan: { name: string; price: string };
   export let isYearly: boolean;
@@ -317,7 +345,7 @@
   </form>
 </div>
 
-
+<!--
 
 <script lang="ts">
   export let plan: { name: string; price: string };

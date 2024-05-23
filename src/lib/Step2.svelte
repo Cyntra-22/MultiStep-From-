@@ -1,13 +1,17 @@
 <script lang="ts">
-  export let onSubmit: (event: Event, isYearly: boolean) => void;
+  export let onSubmit: (event: Event, plan: { name: string; price: string }, isYearly: boolean) => void;
   export let onGoBack: () => void;
   let selectedPlan: string = 'Arcade'; 
   let isYearly: boolean = false;
 
   function handleSubmit(event: Event) {
     event.preventDefault();
-    console.log('Form submitted');
-    onSubmit(event,isYearly);
+    const plan = {
+      name: selectedPlan,
+      price: isYearly ? getYearlyPrice(selectedPlan) : getMonthlyPrice(selectedPlan)
+    };
+    onSubmit(event, plan, isYearly);
+    console.log(plan);
   }
 
   function handleGoBack() {
@@ -18,6 +22,23 @@
   }
   function toggleBillingCycle() {
     isYearly = !isYearly;
+  }
+  function getYearlyPrice(plan: string): string {
+    switch (plan) {
+      case 'Arcade': return '$90/yr';
+      case 'Advanced': return '$120/yr';
+      case 'Pro': return '$150/yr';
+      default: return '';
+    }
+  }
+
+  function getMonthlyPrice(plan: string): string {
+    switch (plan) {
+      case 'Arcade': return '$9/mo';
+      case 'Advanced': return '$12/mo';
+      case 'Pro': return '$15/mo';
+      default: return '';
+    }
   }
 </script>
 

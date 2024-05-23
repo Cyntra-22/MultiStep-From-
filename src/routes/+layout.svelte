@@ -35,6 +35,12 @@
 		transform: translate(-50%,-50%);
         border-radius: 10px;
     }
+
+    @media (min-width: 300px) and (max-width: 768px ){
+        .main-container{
+            flex-direction: column;
+        }
+    }
 		 
 </style>
 

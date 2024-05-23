@@ -4,9 +4,13 @@
   import {currentStep} from "$lib/stepStore";
 
   currentStep.set(2);
+  let selectedPlan = { name: 'Arcade', price: '$9/mo' };
+  let isYearly = false;
 
-  function handleNextStep(event: Event) {
+  function handleNextStep(event: Event, plan: { name: string; price: string }, yearly: boolean) {
     event.preventDefault();
+    selectedPlan = plan;
+    isYearly = yearly;
     goto('/step3');
   }
 

@@ -63,6 +63,20 @@
     text-transform: uppercase;
     color: var(--White);
     }
+
+    @media (min-width: 300px) and (max-width: 768px ){
+
+    .form-sidebar {
+    background-image: url("/bg-sidebar-mobile.svg");
+    width: 400px;
+    height: 200px;
+    display: flex;
+    flex-direction: none;
+    }
+    .step-content{
+      display: none;
+    }
+    }
 </style>
 
 <div class="form-sidebar">
