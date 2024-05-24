@@ -14,11 +14,10 @@
 <style>
     .form-sidebar {
     background-image: url("/bg-sidebar-desktop.svg");
-    background-repeat: no-repeat;
     width: 250px;
     height: 470px;
     padding: 3rem 2rem;
-
+    background-repeat: no-repeat;
     }
 
     .circle {
@@ -74,6 +73,7 @@
     width: 100%;
     height: 300px;
     padding: 0;
+    background-repeat: no-repeat;
     }
     .step{
       display: unset;
@@ -87,6 +87,7 @@
       gap: 1rem;
       padding-top: 1rem;
       margin-left: 4.6rem;
+      
     }
 
     }

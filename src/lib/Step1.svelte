@@ -69,8 +69,12 @@
     cursor: pointer;
     font-weight: bold;
     }
+
     @media (min-width: 300px) and (max-width: 768px ){
-        
+      .form-container{
+        width: 80%;
+      }  
+
     }
 </style>
 <div class="form-container">

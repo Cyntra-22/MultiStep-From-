@@ -100,6 +100,10 @@
     background-color: var(--White);
     border-radius: 10px;
     width: 70%;
+    top: 90%;
+    left: -30%;
+    transform: translate(5%, -45%);
+    
   }
 
  
