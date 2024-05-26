@@ -1,4 +1,7 @@
 <script lang="ts">
+  import {planStore} from "./planStore";
+  import {get} from "svelte/store";
+
   export let onSubmit: (event: Event, plan: { name: string; price: string }, isYearly: boolean) => void;
   export let onGoBack: () => void;
   let selectedPlan: string = 'Arcade'; 
@@ -10,6 +13,7 @@
       name: selectedPlan,
       price: isYearly ? getYearlyPrice(selectedPlan) : getMonthlyPrice(selectedPlan)
     };
+    planStore.set({...plan,isYearly});
     onSubmit(event, plan, isYearly);
     console.log(plan);
   }

@@ -175,8 +175,11 @@
 
 
 <script lang="ts">
-  export let plan: { name: string; price: string };
-  export let isYearly: boolean;
+
+  import {planStore} from "./planStore";
+  import {get} from "svelte/store";
+  let plan = get(planStore);
+
   export let addOns: any;
   export let onSubmit: (event: Event) => void;
   export let onGoBack: () => void;
@@ -191,12 +194,12 @@
   }
 
   function getTotalPrice(): string {
-    let basePrice = isYearly ? parseInt(plan.price.slice(1, -3)) : parseInt(plan.price.slice(1, -3));
+    let basePrice = plan.isYearly ? parseInt(plan.price.slice(1, -3)) : parseInt(plan.price.slice(1, -3));
     let addOnsPrice = 0;
     if (addOns.onlineService) addOnsPrice += 1;
     if (addOns.largerStorage) addOnsPrice += 2;
     if (addOns.customizableProfile) addOnsPrice += 2;
-    return `$${basePrice + addOnsPrice}${isYearly ? '/yr' : '/mo'}`;
+    return `$${basePrice + addOnsPrice}${plan.isYearly ? '/yr' : '/mo'}`;
   }
 </script>
 
@@ -310,7 +313,7 @@
     <div class="selection-box">
       <div class="selection-container">
         <div class="selected-plan">
-          <p class="plan-name">{plan.name} ({isYearly ? 'Yearly' : 'Monthly'})</p>
+          <p class="plan-name">{plan.name} ({plan.isYearly ? 'Yearly' : 'Monthly'})</p>
           <p class="plan-price">{plan.price}</p>
         </div>
         <a href="/"><small class="change-style">Change</small></a>
@@ -319,19 +322,19 @@
           {#if addOns.onlineService}
             <div class="selected-addon">
               <span class="service-name">Online service</span>
-              <span class="service-price">+$1/{isYearly ? 'yr' : 'mo'}</span>
+              <span class="service-price">+$1/{plan.isYearly ? 'yr' : 'mo'}</span>
             </div>
           {/if}
           {#if addOns.largerStorage}
             <div class="selected-addon">
               <span class="service-name">Larger storage</span>
-              <span class="service-price">+$2/{isYearly ? 'yr' : 'mo'}</span>
+              <span class="service-price">+$2/{plan.isYearly ? 'yr' : 'mo'}</span>
             </div>
           {/if}
           {#if addOns.customizableProfile}
             <div class="selected-addon">
               <span class="service-name">Customizable profile</span>
-              <span class="service-price">+$2/{isYearly ? 'yr' : 'mo'}</span>
+              <span class="service-price">+$2/{plan.isYearly ? 'yr' : 'mo'}</span>
             </div>
           {/if}
         </div>
