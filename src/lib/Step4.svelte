@@ -1,4 +1,3 @@
-
 <script lang="ts">
   import {addOnsStore} from "./addOnStore";
   import { planStore } from './planStore';
@@ -154,8 +153,8 @@
               <span class="service-price">{addOn.price}</span>
             </div>
           {/each}
-        </div>
-      </div>
+        </div> 
+      </div> 
       <p class="total">Total ({plan.isYearly ? 'per year' : 'per month'}) <b>{getTotalPrice()}</b></p>
     </div>
     <div class="btns">

@@ -15,7 +15,7 @@
     };
     planStore.set({...plan,isYearly});
     onSubmit(event, plan, isYearly);
-    console.log(plan);
+    
   }
 
   function handleGoBack() {

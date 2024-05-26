@@ -25,26 +25,29 @@
 
 <script lang="ts">
   import {addOnsStore} from "./addOnStore";
+  import { planStore } from './planStore';
   import {get} from "svelte/store";
   export let onSubmit: (event: Event, addOns: AddOn[]) => void;
   export let onGoBack: () => void;
 
+  let year_plan = get(planStore);
   let onlineService: boolean = false;
   let largerStorage: boolean = false;
   let customizableProfile: boolean = false;
 
   const addOnDetails:AddOn[] = [
-    { name: 'Online Service', price: '$1/mo', isChecked: onlineService },
-    { name: 'Larger Storage', price: '$2/mo', isChecked: largerStorage },
-    { name: 'Customizable Profile', price: '$2/mo', isChecked: customizableProfile },
-  ];
+      { name: 'Online Service', price: year_plan.isYearly ? '$10/yr' : '$1/mo', isChecked: onlineService },
+      { name: 'Larger Storage', price: year_plan.isYearly ? '$20/yr' : '$2/mo', isChecked: largerStorage },
+      { name: 'Customizable Profile', price: year_plan.isYearly ? '$20/yr' : '$2/mo', isChecked: customizableProfile },
+    ];
+    
 
   function handleSubmit(event: Event) {
     event.preventDefault();
     const selectedAddOns = addOnDetails.filter(addOn => addOn.isChecked);
     onSubmit(event, selectedAddOns);
     addOnsStore.set(selectedAddOns);
-    console.log(selectedAddOns);
+    console.log(year_plan.isYearly);
   }
 
   function handleGoBack() {
