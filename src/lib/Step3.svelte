@@ -24,14 +24,16 @@
 -->
 
 <script lang="ts">
-  export let onSubmit: (event: Event, addOns: any) => void;
+  import {addOnsStore} from "./addOnStore";
+  import {get} from "svelte/store";
+  export let onSubmit: (event: Event, addOns: AddOn[]) => void;
   export let onGoBack: () => void;
 
   let onlineService: boolean = false;
   let largerStorage: boolean = false;
   let customizableProfile: boolean = false;
 
-  const addOnDetails = [
+  const addOnDetails:AddOn[] = [
     { name: 'Online Service', price: '$1/mo', isChecked: onlineService },
     { name: 'Larger Storage', price: '$2/mo', isChecked: largerStorage },
     { name: 'Customizable Profile', price: '$2/mo', isChecked: customizableProfile },
@@ -41,6 +43,7 @@
     event.preventDefault();
     const selectedAddOns = addOnDetails.filter(addOn => addOn.isChecked);
     onSubmit(event, selectedAddOns);
+    addOnsStore.set(selectedAddOns);
     console.log(selectedAddOns);
   }
 
