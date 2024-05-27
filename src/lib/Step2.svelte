@@ -46,56 +46,6 @@
   }
 </script>
 
-
-<!--
-<script lang="ts">
-  export let onSubmit: (event: Event, plan: { name: string; price: string }, isYearly: boolean) => void;
-  export let onGoBack: () => void;
-  let selectedPlan: string = 'Arcade';
-  let isYearly: boolean = false;
-
-  function handleSubmit(event: Event) {
-    event.preventDefault();
-    const plan = {
-      name: selectedPlan,
-      price: isYearly ? getYearlyPrice(selectedPlan) : getMonthlyPrice(selectedPlan)
-    };
-    onSubmit(event, plan, isYearly);
-  }
-
-  function handleGoBack() {
-    onGoBack();
-  }
-
-  function selectPlan(plan: string) {
-    selectedPlan = plan;
-  }
-
-  function toggleBillingCycle() {
-    isYearly = !isYearly;
-  }
-
-  function getYearlyPrice(plan: string): string {
-    switch (plan) {
-      case 'Arcade': return '$90/yr';
-      case 'Advanced': return '$120/yr';
-      case 'Pro': return '$150/yr';
-      default: return '';
-    }
-  }
-
-  function getMonthlyPrice(plan: string): string {
-    switch (plan) {
-      case 'Arcade': return '$9/mo';
-      case 'Advanced': return '$12/mo';
-      case 'Pro': return '$15/mo';
-      default: return '';
-    }
-  }
-</script>
-
--->
-
 <style>
     .form-container{
         margin-left: 30px;
