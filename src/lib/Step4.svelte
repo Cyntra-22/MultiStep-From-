@@ -10,7 +10,6 @@
   export let onGoBack: () => void;
 
 
-
   function handleSubmit(event: Event) {
     event.preventDefault();
     onSubmit(event);

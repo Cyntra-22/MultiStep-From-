@@ -3,6 +3,7 @@
   import { goto } from '$app/navigation';
   import {currentStep} from "$lib/stepStore";
 
+ 
   currentStep.set(4);
   let selectedPlan = { name: 'Arcade', price: '$9/mo' };
   let isYearly = false;
@@ -23,7 +24,7 @@
   }
 </script>
 
-<Step4 plan={selectedPlan} isYearly={isYearly} addOns={addOns} onSubmit={handleNextStep} onGoBack={handleGoBack} />
+<Step4 onSubmit={handleNextStep} onGoBack={handleGoBack} />
 
 
 <!-- App.svelte 
