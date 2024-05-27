@@ -9,6 +9,7 @@
   export let onSubmit: (event: Event) => void;
   export let onGoBack: () => void;
 
+
   function handleSubmit(event: Event) {
     event.preventDefault();
     onSubmit(event);
@@ -25,10 +26,30 @@
     }, 0);
     return `$${basePrice + addOnsPrice}${plan.isYearly ? '/yr' : '/mo'}`;
   }
+
+  function togglePlanType() {
+    planStore.update(currentPlan => {
+      currentPlan.isYearly = !currentPlan.isYearly;
+      currentPlan.price = currentPlan.isYearly ? 
+                          `$${parseInt(currentPlan.price.slice(1, -3)) * 10}/yr` : 
+                          `$${parseInt(currentPlan.price.slice(1, -3)) / 10}/mo`;
+      return currentPlan;
+    });
+
+    addOnsStore.update(currentAddOns => {
+      return currentAddOns.map(addOn => {
+        addOn.price = plan.isYearly ? 
+                      `$${parseInt(addOn.price.slice(1, -3)) * 10}/yr` : 
+                      `$${parseInt(addOn.price.slice(1, -3)) / 10}/mo`;
+        return addOn;
+      });
+    });
+
+    plan = get(planStore);
+    selectedAddOns = get(addOnsStore);
+  }
+
 </script>
-
-
-
 
 <style>
     .header{
@@ -103,9 +124,6 @@
     font-weight: 500;
     font-size: 0.9rem;
     }
-    .selected-addon .servic-price {
-    color: var(--Marine-blue);
-    }
     .total {
     padding: 1.5rem;
     display: flex;
@@ -120,11 +138,19 @@
     .plan-price{
         font-weight: 800;
     }
-    .servic-price{
-        font-weight: bold;
-    }
+   
     .prev-stp:hover{
       color: var(--Marine-blue);
+    }
+    .change-style:hover{
+      color: var(--Marine-blue);
+    }
+    .change-style{
+      background: transparent;
+      border: none;
+      text-decoration: underline;
+      cursor: pointer;
+      color: var(--Cool-gray);
     }
     .change-style:hover{
       color: var(--Marine-blue);
@@ -144,7 +170,7 @@
           <p class="plan-name">{plan.name} ({plan.isYearly ? 'Yearly' : 'Monthly'})</p>
           <p class="plan-price">{plan.price}</p>
         </div>
-        <a href="/"><small class="change-style">Change</small></a>
+         <a role="button" class="change-style" on:click={togglePlanType}><small>Change</small></a>
         <hr />
         <div class="addons">
           {#each selectedAddOns as addOn}
