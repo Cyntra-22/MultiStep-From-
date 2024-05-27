@@ -10,6 +10,7 @@
   export let onGoBack: () => void;
 
 
+
   function handleSubmit(event: Event) {
     event.preventDefault();
     onSubmit(event);
@@ -170,7 +171,7 @@
           <p class="plan-name">{plan.name} ({plan.isYearly ? 'Yearly' : 'Monthly'})</p>
           <p class="plan-price">{plan.price}</p>
         </div>
-         <a role="button" class="change-style" on:click={togglePlanType}><small>Change</small></a>
+        <a role="button" class="change-style" on:click={togglePlanType}><small>Change</small></a>
         <hr />
         <div class="addons">
           {#each selectedAddOns as addOn}
