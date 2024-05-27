@@ -199,6 +199,7 @@
       color: var(--Marine-blue);
     }
 </style>
+
 <div class="form-container">
     <div class="header">
         <h1 class="title">Select your plan</h1>
