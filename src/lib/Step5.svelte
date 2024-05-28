@@ -18,6 +18,20 @@
         width: 50%;
     }
 
+    @media (min-width: 300px) and (max-width: 768px ){
+        .step4-container{
+        width: 70%;
+        background-color: white;
+        padding: 5px 19px 19px 19px;
+        border-radius: 10px;
+        transform: translate(-80%,-20%);
+      }
+      img{
+        padding-top:1rem;
+      }
+      
+    }
+
 </style>
 
 <div class="step4-container">
