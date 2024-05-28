@@ -72,7 +72,7 @@
 
     @media (min-width: 300px) and (max-width: 768px ){
       .form-container{
-        width: 100%;
+        width: 70%;
         background-color: white;
         padding: 19px;
         border-radius: 10px;

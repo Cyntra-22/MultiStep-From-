@@ -18,6 +18,7 @@
     height: 470px;
     padding: 3rem 2rem;
     background-repeat: no-repeat;
+    
     }
 
     .circle {
@@ -74,6 +75,7 @@
     height: 300px;
     padding: 0;
     margin: 0;
+  
     }
     .step{
       display: unset;
