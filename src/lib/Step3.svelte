@@ -130,7 +130,7 @@
         background-color: white;
         padding: 5px 19px 19px 19px;
         border-radius: 10px;
-        transform: translate(0,-30%);
+        transform: translate(0,-35%);
       }
       .btns{
         margin-top: 20px;

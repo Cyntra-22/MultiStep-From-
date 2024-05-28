@@ -64,6 +64,7 @@
     }
     .step4-container{
         margin-left: 30px;
+        width: 55%;
     }
      .btns {
     display: flex;
@@ -101,7 +102,7 @@
     flex-direction: column;
     justify-content: center;
     flex: 1;
-    width: 500px;
+    width: 100%;
     }
     .selection-container {
     background-color: var(--Magnolia);
@@ -155,6 +156,26 @@
     .change-style:hover{
       color: var(--Marine-blue);
     }
+    
+     @media (min-width: 300px) and (max-width: 768px ){
+         .step4-container{
+        width: 70%;
+        background-color: white;
+        padding: 5px 19px 19px 19px;
+        border-radius: 10px;
+        transform: translate(0,-35%);
+      }
+
+      .selection-box{
+        width: 100%;
+      }
+
+      .btns{
+        margin-top: 0px;
+      }
+
+    }
+
 </style>
 
 
