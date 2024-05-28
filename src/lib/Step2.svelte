@@ -211,6 +211,25 @@
         align-items: unset;
         height: 90px;
       }
+  
+      .form-container{
+        width: 70%;
+        background-color: white;
+        padding: 5px 19px 19px 19px;
+        border-radius: 10px;
+        transform: translate(0,-30%);
+      } 
+      
+      .plan-info{
+        margin-left: 2rem;
+        align-items:start;
+      }
+
+      .card-container button{
+        padding: 19px;
+        width: 100%;
+        margin-bottom: 15px;
+      }
      
     }
 </style>
