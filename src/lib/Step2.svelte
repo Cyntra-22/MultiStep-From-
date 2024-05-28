@@ -198,6 +198,21 @@
     .prev-stp:hover{
       color: var(--Marine-blue);
     }
+    @media (min-width: 300px) and (max-width: 768px ){
+      .card-container{
+        display: block;
+      }
+      .plan-card{
+        width: 100%;
+        display: flex;
+        flex-direction: unset;
+        justify-content: unset;
+        padding: 0;
+        align-items: unset;
+        height: 90px;
+      }
+     
+    }
 </style>
 
 <div class="form-container">
@@ -208,17 +223,21 @@
     <form on:submit={handleSubmit}>
       <div class="card-container">
         <button type="button" class="plan-card {selectedPlan === 'Arcade' ? 'selected' : ''}" on:click={() => selectPlan('Arcade')}>
-        <img src="/icon-arcade.svg" alt="arcade" />
-        <div class="plan-info">
-          <b>Arcade</b>
-          <span class="plan-priced">{isYearly ? '$90/yr' : '$9/mo'}</span>
-          {#if isYearly}
-            <span class="plan-free">2 months free</span>
-          {/if}
-        </div>
+          <div>
+            <img src="/icon-arcade.svg" alt="arcade" />
+          </div>
+          <div class="plan-info">
+            <b>Arcade</b>
+            <span class="plan-priced">{isYearly ? '$90/yr' : '$9/mo'}</span>
+            {#if isYearly}
+              <span class="plan-free">2 months free</span>
+            {/if}
+          </div>
         </button>
         <button type="button" class="plan-card {selectedPlan === 'Advanced' ? 'selected' : ''}" on:click={() => selectPlan('Advanced')}>
-        <img src="/icon-advanced.svg" alt="advanced" />
+          <div>
+              <img src="/icon-advanced.svg" alt="advanced" />
+          </div> 
         <div class="plan-info">
           <b>Advanced</b>
           <span class="plan-priced">{isYearly ? '$120/yr' : '$12/mo'}</span>
@@ -228,7 +247,9 @@
         </div>
         </button>
         <button type="button" class="plan-card {selectedPlan === 'Pro' ? 'selected' : ''}" on:click={() => selectPlan('Pro')}>
-        <img src="/icon-pro.svg" alt="pro" />
+        <div>
+          <img src="/icon-pro.svg" alt="pro" />
+        </div>
         <div class="plan-info">
           <b>Pro</b>
           <span class="plan-priced">{isYearly ? '$150/yr' : '$15/mo'}</span>

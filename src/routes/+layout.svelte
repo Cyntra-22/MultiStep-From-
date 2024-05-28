@@ -54,6 +54,16 @@
     padding-top: 5px;
     padding-bottom: 30px;
   }
+
+  @media (min-width: 300px) and (max-width: 768px ){
+    .main-container{
+      background-color: unset;
+      top: 0%;
+      left: 0%;
+      transform: translate(0%, 0%);
+      padding: 0;
+    }
+  }
  
 </style>
 
@@ -70,12 +80,15 @@
     <slot />
   </div>
 {/if}
+
 -->
 
 <div class="main-container">
     <SideNavBar />
     <slot />
 </div>
+
+
 
 
 

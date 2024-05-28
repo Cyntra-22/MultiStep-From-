@@ -72,7 +72,11 @@
 
     @media (min-width: 300px) and (max-width: 768px ){
       .form-container{
-        width: 80%;
+        width: 100%;
+        background-color: white;
+        padding: 19px;
+        transform: translate(-110%,15%);
+        border-radius: 10px;
       }  
 
     }
