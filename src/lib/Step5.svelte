@@ -24,7 +24,7 @@
         background-color: white;
         padding: 5px 19px 19px 19px;
         border-radius: 10px;
-        transform: translate(-80%,-20%);
+        transform: translate(-50%,-20%);
       }
       img{
         padding-top:1rem;
