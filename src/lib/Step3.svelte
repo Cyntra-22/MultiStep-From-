@@ -123,6 +123,22 @@
     .prev-stp:hover{
       color: var(--Marine-blue);
     }
+
+    @media (min-width: 300px) and (max-width: 768px ){
+         .step3-container{
+        width: 70%;
+        background-color: white;
+        padding: 5px 19px 19px 19px;
+        border-radius: 10px;
+        transform: translate(0,-30%);
+      }
+      .btns{
+        margin-top: 20px;
+      }
+      
+    }
+    
+      
 </style>
 
 <div class="step3-container">  
