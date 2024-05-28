@@ -75,8 +75,8 @@
         width: 100%;
         background-color: white;
         padding: 19px;
-        transform: translate(-80%,15%);
         border-radius: 10px;
+        transform: translate(0,-35%);
       }  
 
     }

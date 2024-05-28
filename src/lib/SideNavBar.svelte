@@ -73,7 +73,6 @@
     width: 100%;
     height: 300px;
     padding: 0;
-    background-repeat: no-repeat;
     margin: 0;
     }
     .step{
