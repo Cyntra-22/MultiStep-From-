@@ -107,6 +107,7 @@
     justify-content: center;
     margin-top: 2rem;
     }
+
     .switch {
     position: relative;
     display: inline-block;
@@ -229,6 +230,9 @@
         padding: 19px;
         width: 100%;
         margin-bottom: 15px;
+      }
+      .switcher{
+        margin-bottom: 2rem;
       }
      
     }
